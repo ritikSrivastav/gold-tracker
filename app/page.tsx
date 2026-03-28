@@ -31,7 +31,7 @@ function timeAgo(iso: string) {
   return `${Math.round(diff / 60)}h ago`
 }
 
-export const revalidate = 300 // revalidate every 5 minutes
+export const dynamic = 'force-dynamic' // revalidate every 5 minutes
 
 export default async function Home() {
   const rates = await kv.get<GoldRates>('gold:rates')
