@@ -4,7 +4,7 @@
 
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+
 
 interface AlertEmailParams {
   to: string
@@ -15,6 +15,7 @@ interface AlertEmailParams {
 }
 
 export async function sendAlertEmail(params: AlertEmailParams) {
+  const resend = new Resend(process.env.RESEND_API_KEY)  // ← add here
   const { to, city, currentPrice, targetPrice, direction } = params
   const fmt = (n: number) => '₹' + n.toLocaleString('en-IN')
 
